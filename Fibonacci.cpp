@@ -65,32 +65,63 @@ int main() {
     char choice;
     int n;
 
-    cout << "Fibonacci Series\n a)Recursion Method\n b)Divide & Conquer (Matrix Multiplication) Method\n c)Dynamic Approach Method\n d)Exit\nEnter your choice(a-d):";
-    cin >> choice;
-    choice = tolower(choice);
+    while (true) {
+        int dataChoice;
+        cout << "1) Use initialized example value\n"
+             << "2) Enter your own value of n\n"
+             << "3) Exit\n"
+             << "Enter choice (1-3): ";
+        cin >> dataChoice;
 
-    if (choice == 'd') {
-        cout << "Exiting program..." << endl;
-        return 0;
-    }
+        if (dataChoice == 1) {
+            cout << "\nUsing initialized example value: n = 8" << endl;
+            cout << "Fibonacci(8) using Recursion = " << fibRecursion(8) << endl;
+            cout << "Fibonacci(8) using Matrix Multiplication = " << fibMatrix(8) << endl;
+            cout << "Fibonacci(8) using Dynamic Programming = " << fibDynamic(8) << endl;
+            cout << endl;
+        }
+        else if (dataChoice == 2) {
+            while (true) {
+                cout << "\nFibonacci Series\n"
+                     << "a) Recursion Method\n"
+                     << "b) Divide & Conquer (Matrix Multiplication) Method\n"
+                     << "c) Dynamic Approach Method\n"
+                     << "d) Back to main menu\n"
+                     << "Enter your choice (a-d): ";
+                cin >> choice;
+                choice = tolower(choice);
 
-    cout << "Enter the value of n: ";
-    cin >> n;
+                if (choice == 'd') {
+                    break;
+                }
 
-    switch (choice) {
-        case 'a':
-            cout << "Fibonacci(" << n << ") using Recursion = " << fibRecursion(n) << endl;
+                cout << "Enter the value of n: ";
+                cin >> n;
+
+                switch (choice) {
+                    case 'a':
+                        cout << "Fibonacci("<< n <<") using Recursion = " << fibRecursion(n) << endl;
+                        break;
+                    case 'b':
+                        cout << "Fibonacci("<< n <<") using Matrix Multiplication = " << fibMatrix(n) << endl;
+                        break;
+                    case 'c':
+                        cout << "Fibonacci("<<n<<") using Dynamic Programming = " << fibDynamic(n) << endl;
+                        break;
+                    default:
+                        cout << "Invalid choice. Please select between a-d" << endl;
+                }
+                cout <<endl;
+            }
+        }
+        else if (dataChoice == 3) {
+            cout << "Exiting program..." << endl;
             break;
-        case 'b':
-            cout << "Fibonacci(" << n << ") using Matrix Multiplication = " << fibMatrix(n) << endl;
-            break;
-        case 'c':
-            cout << "Fibonacci(" << n << ") using Dynamic Programming = " << fibDynamic(n) << endl;
-            break;
-        default:
-            cout << "Invalid choice. Please select between a-d." << endl;
+        }
+        else {
+            cout << "Invalid choice. Please select between 1-3\n";
+        }
     }
 
     return 0;
 }
-
