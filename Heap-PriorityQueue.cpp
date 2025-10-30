@@ -147,10 +147,7 @@ void heapSort(vector<int> &(newData)) {
 }
 
 int main() {
-
-//    cout << " 1. Enter data\n 2. Use initialized data" << endl;
     int choice =0;
-//    cin >> choice;
     while (choice != 1 && choice != 2) {
         cout << "Choose a valid choice (1-2):\n 1. Enter data\n 2. Use initialized data" << endl;
         cin >> choice;
