@@ -39,7 +39,7 @@ int Binary_Search(const vector<int> &Sortedlist, int target)
         {
             return mid;
         }
-        else if (target > mid)
+        else if (target > Sortedlist[mid])
         {
             left = mid + 1;
         }
